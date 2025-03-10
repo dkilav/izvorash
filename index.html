@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=My+Soul&family=Open+Sans&display=swap"
+        rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+    <!-- <script src="alpine.min.js"></script> -->
+    <title>Premier-Ministr</title>
+    <link href="./output.css" rel="stylesheet" />
+</head>
+
+<body class="antialiased" x-data="{'darkMode': false}" x-init="
+darkMode = JSON.parse(localStorage.getItem('darkMode'));
+$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))">
+    <div :class="{'dark': darkMode === true}">
+        <div class="min-h-screen text-gray-800 bg-white dark:bg-gray-800 dark:text-gray-100">
+            <div class="flex flex-col space-y-1 m-auto max-w-[1400px] pt-6">
+                <div class="fixed  z-50 flex translate-y-20 justify-end items-center space-x-2">
+                    <span class="text-sm text-gray-300 dark:text-gray-200"></span>
+                    <label for="toggle"
+                        class="w-9 h-5 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer duration-300 ease-in-out dark:bg-gray-400">
+                        <div
+                            class="toggle-dot bg-white px-2 w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out dark:translate-x-3">
+                        </div>
+                    </label>
+                    <span class="text-sm text-gray-400 dark:text-white"></span>
+                    <input id="toggle" type="checkbox" class="hidden" :value="darkMode"
+                        @change="darkMode = !darkMode" />
+                </div>
+                <div class="max-w-[1800px] mx-auto w-full h-full bg-violet-950 text-gray-600 font-heebo">
+                    <div class="container max-w-[1800px] w-full  mx-auto">
+                        <div x-data="{ currentPage: 'home' }">
+                            <nav
+                                class="fixed left-0 right-0 top-0 mx-auto w-full z-40 max-w-[1400px]  bg-violet-100 dark:bg-violet-900   py-3">
+                                <div
+                                    class="container m-auto mx-auto flex w-full max-w-[1400px] items-center justify-between text-white">
+                                    <!-- <img src="img/logo.png" class="ml-4" alt=""> -->
+                                    <h6
+                                        class="text-3xl font-black lg:ml-24 text-yellow-800 dark:text-white font-family italic">
+                                        Derevlyansky</h6>
+                                    <ul
+                                        class="mr-24 hidden cursor-pointer items-center gap-6 text-yellow-800 italic dark:text-white font-black text-xl z-40 py-3  md:flex">
+                                        <a href="#" @click="currentPage = 'home'" class="hover:text-red-600">RO</a>
+                                        <a href="#" @click="currentPage = 'about'" class="hover:text-red-600">RU</a>
+                                        <a href="#" @click="currentPage = 'ctas'" class="hover:text-red-600">CTAS</a>
+                                        <a href="#" @click="currentPage = 'galery'"
+                                            class="hover:text-red-600">SALARIU</a>
+                                        <a href="#" @click="currentPage = 'blog'" class="hover:text-red-600">STAGIU</a>
+                                        <a href="#" @click="currentPage = 'single'"
+                                            class="hover:text-red-600">STIMUL</a>
+                                        <!-- <a href="#" @click="currentPage = 'contact'" class="hover:text-red-600">Contact</a>  -->
+                                    </ul>
+                                    <button
+                                        class="group mx-2 block rounded px-3 marker:z-50 py-1 bg-[#998a1c] focus:outline-none md:hidden">
+                                        <div class="mb-1 h-1 w-5 bg-[#4032a8]"></div>
+                                        <div class="mb-1 h-1 w-5 bg-[#4032a8]"></div>
+                                        <div class="mb-1 h-1 w-5 bg-[#4032a8]"></div>
+                                        <!-- <div class="mb-1 h-1 w-3 bg-[#4032a8]"></div> -->
+                                        <div
+                                            class="absolute -right-full top-12 h-screen w-full transform border bg-[#4032a8] opacity-0 transition-all duration-300 group-focus:right-0 group-focus:opacity-100">
+                                            <ul
+                                                class="flex w-full cursor-pointer z-50 flex-col items-center text-[#e1edeb] gap-6 py-2 text-base font-semibold">
+                                                <a href="#" @click="currentPage = 'home'">RO</a>
+                                                <a href="#" @click="currentPage = 'about'">RU</a>
+                                                <a href="#" @click="currentPage = 'ctas'">CTAS</a>
+                                                <a href="#" @click="currentPage = 'galery'">Salariu</a>
+                                                <a href="#" @click="currentPage = 'blog'">Stagiu</a>
+                                                <a href="#" @click="currentPage = 'single'">Stimul</a>
+                                                <!-- <a href="#" @click="currentPage = 'contact'">Contact</a> -->
+                                            </ul>
+                                        </div>
+                                    </button>
+                                </div>
+                            </nav>
+                            <!--! home start -->
+                            <div x-show="currentPage === 'home'"
+                                class="text-xl md:text-2xl italic     font-bold te mt-10 py-8 min-h-screen bg-yellow-300 dark:bg-yellow-900">
+                                <ul class="text-black dark:text-white grid justify-end mr-12">
+                                    <li>Domnului Dorin Recean</li>
+                                    <li>de la Vladimir Derevleanschi</li>
+                                    <li>născut.22.01.1952</li>
+                                    <li>dom. m.Bălîi str.Cehov 86/10</li>
+                                    <li>tel. 069370800</li>
+                                </ul>
+                                <h1 class="text-3xl py-6 text-black   dark:text-white font-bold italic text-center">
+                                    Domnule Premier!
+                                </h1>
+                                <h1 class="text-2xl px-12 text-black dark:text-white font-bold italic">
+
+                                    <p class="text-red-600 ml-16">1.La data pensionării,22.01.2014,calculînd mărimea, din formula de
+                                        calcul din cei 30 ani necesari,au fost excluși 10 ani (fors-major).Conform
+                                        Legii Nr.156 din 14-10-1998,
+                                        Articolul 8. Venitul mediu lunar asigurat:</p>
+                                    <p>(1) Baza de calcul al pensiei o constituie venitul mediu lunar asigurat din toată
+                                        perioada de activitate, valorizat la momentul stabilirii pensiei,insist ca anii
+                                        excluși (1989-1998),să fie înlocuiți cu alți 10 din perioada 1974-1983,(vezi
+                                        referința la salariu).</p>
+
+                                    <p class="ml-16">2.Din motive necunoscute,din stajiul de muncă au fost excluși 12
+                                        ani(vezi extractul).
+                                        Conform Legii Nr.156 din 14-10-1998,
+                                        Articolul 51. Confirmarea stagiului de cotizare realizat anterior implementării
+                                        evidenţei individuale:</p>
+
+                                    <p>(1) Stagiul de cotizare realizat anterior implementării evidenţei individuale se
+                                        confirmă prin carnetul de muncă.
+                                    <p class="ml-16">3.Din carnetul de muncă (vezi extrasul),stajiul total este egal cu
+                                        43 ani 6 luni 21 zile.Prin urmare, rog ca anii excluși să fie luați în calcul.
+                                    </p>
+
+                                    <p class="mt-24 ml-48">Am onoarea</p>
+                                    <p class="flex justify-end mr-24">Vladimir Derevleanschi</p>
+                                    <p class="py-12 ml-24 text-xl">P.S. Pentru perioada 1999 - 2014, părțile nu au
+                                        divirgențe.</p>
+                                </h1>
+                            </div>
+                            <div x-show="currentPage === 'about'"
+                                class="mt-10 py-8  max-w-[1400px] min-h-screen bg-yellow-300 dark:bg-yellow-900">
+                                <ul
+                                    class="text-xl md:text-2xl italic py-6 grid justify-end mr-12   font-bold text-black dark:text-white">
+                                    <li>Господину Дорину Речан</li>
+                                    <li>от Деревлянского Владимира</li>
+                                    <li>рожд.22.01.1952</li>
+                                    <li>прож.мун.Бэлць,ул.Чехова 86/10</li>
+                                    <li>тел. 069370800</li>
+                                </ul>
+                                <h1 class="text-3xl py-6  text-gray-900 dark:text-white font-bold italic text-center">
+                                    Господин Премьер
+                                    Министр!</h1>
+                                <p class="text-black px-12 italic font-semibold dark:text-white text-2xl">
+                                    Судьба распорядилась таким образом что за 44 года рабочего стажа, из них 30 лет
+                                    телефонизировал
+                                    Молдову.Самолично,в 70-тые годы, в Кишинэу и Бэлць, расширил сеть более чем на 9000
+                                    абонентов,
+                                    а в 80-90-тые годы, в 11-ти северных районах Молдовы, смонтировал и сдал "под ключ"
+                                    около 150 АТСК-50/200 и АТСК-100/2000,а это в общей сложности свыше 30000 телефонных
+                                    номеров. Согласитесь,это огромный труд который не каждому под силу.И после всего
+                                    этого,весь этот неимоверный труд не берётся в расчёт!Кощунство какое-то!И ещё, Вы
+                                    будете удивлены, потому-как за всю эту работу я получил всего 10% из составленных
+                                    смет,потому как у большевиков в организациях стройсвязи существовал "фонд о
+                                    зарплате", за рамки которого нельзя выйти.Следовательно, 90% смет возвращались в
+                                    бюджет.Ну
+                                    и ладно,от лирики к конкретике:</p>
+                                <p class="px-12  py-2 text-2xl text-black font-bold italic dark:text-white">А обращаюсь
+                                    к Вам с просьбой вернуть работников CTAS m.Bălți в правовое поле,то есть, согласно
+                                    Ст.8(1) Закона о пенсиях за nr.156, сделать перерасчёт пенсии, а согласно статьи
+                                    51(44.1), вернуть в формулу расчёта "украденный стаж"</p>
+                                <p class="ml-24 py-8 text-3xl text-black dark:text-white font-bold italic px-24">Честь
+                                    имею<span
+                                        class="px-24 py-12 text-3xl font-bold italic dark:text-white flex justify-end mr-12">Владимир
+                                        Деревлянски</span></p>
+                                </p>
+                            </div>
+                            <!--! Home end -->
+
+                            <!--! Home2 start -->
+                            <div x-show="currentPage === 'single'" class="mt-10 min-h-screen bg-blue-900">
+                                <h1 class="text-3xl font-bold italic text-center py-6 text-white">Stimul</h1>
+                                <div>
+                                    <p class="p-4 bg-violet-700 font-extrabold text-white text-2xl italic">Хоть и
+                                        относился я к большевицкой власти с презрением, тем не менее, назло всем врагам,
+                                        работал <span class="text-3xl text-red-400 font-black italic">на славу.</span>
+                                    </p>
+                                    <p class="text-red-600 bg-white text-2xl p-4 font-bold italic">Удивительные
+                                        "большевички" в CTASе м.Bălți, с каждого поощрения снимали по одному году стажа.
+                                    </p>
+                                    <img src="./img/40.png" alt="">
+                                    <img src="./img/41.png" alt="">
+                                    <img src="./img/42.png" alt="">
+                                </div>
+                            </div>
+                            <!--! Home2 end -->
+
+                            <div x-show="currentPage === 'ctas'" class=" min-h-screen bg-green-">
+                                <p class="py-8 mt-10 text-3xl bg-red-950 text-red-600  text-center font-bold italic">
+                                    CĂTRE CTAS:</p>
+                                <img src="images/1.png" class="dark:bg-slate-400" alt="">
+                                <p class="text-3xl text-red-500 text-center font-bold italic py-6 bg-red-950">Răspuns :
+                                </p>
+                                <img src="images/6.png" alt="">
+                                <p class="text-3xl text-red-500 text-center font-bold italic py-6 bg-red-950">Fără
+                                    răspuns :</p>
+                                <img src="images/7.png" alt="">
+                            </div>
+                            <div x-show="currentPage === 'galery'" class="mt-10 min-h-screen bg-red-600">
+                                <div>
+                                    <img src="img/2.png" alt="">
+                                    <img src="img/3.png" alt="">
+                                    <img src="img/4.png" alt="">
+                                    <img src="img/5.png" alt="">
+                                    <img src="img/5-1.png" alt="">
+                                </div>
+                            </div>
+                            <div x-show="currentPage === 'blog'" class="mt-10 min-h-screen bg-yellow-600">
+                                <div>
+                                    <img src="./img/39.png" alt="">
+                                    <img src="./img/26.png" alt="">
+                                    <img src="./img/27.png" alt="">
+                                    <img src="./img/28.png" alt="">
+                                    <img src="./img/29.png" alt="">
+                                    <img src="./img/30.png" alt="">
+                                    <img src="./img/31.png" alt="">
+                                    <img src="./img/32.png" alt="">
+                                    <img src="./img/33.png" alt="">
+                                    <img src="./img/34.png" alt="">
+                                </div>
+                                <p class="px-8 py-2 text-3xl text-white font-extrabold italic">Исходя из Закона РМ о
+                                    пенсиях №156/1998-го года статья 51(44) 1."Страховой стаж,приобретённый до введения
+                                    индивидуального учёта,подтверждается трудовой книжкой".</p>
+                                <p class="py-3 px-8 text-3xl text-white font-semibold italic">Из записи в трудовой,мой
+                                    рабочий стаж составляет: <span class="text-4xl text-red-600">"43 года 6 мес. и 21
+                                        день",</span> а не 31 год и 6 м-цев.</p>
+                            </div>
+                            <!--! home end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>
